@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Providers\ViewComposers;
+
+use Illuminate\Contracts\View\View;
+
+class ManagerComposer
+{
+
+    public function compose(View $view)
+    {
+        $ur = url()->full();
+        $arr = explode('/', $ur);
+        $end = end($arr);
+        $view->with('end', $end);
+    }
+}
